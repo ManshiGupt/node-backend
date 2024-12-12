@@ -1,0 +1,21 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "to note",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "keywords": [
+    "nodeJs",
+    "expressJs",
+    "mongodb"
+  ],
+  "author": "manshi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4"
+  }
+}

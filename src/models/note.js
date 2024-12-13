@@ -1,16 +1,18 @@
 const mongoose = require("mongoose");
 
 const noteSchema = mongoose.Schema({
-    Title:{
-        type:String
+    title:{
+        type:String,
+        maxLength: 5
     },
-    Content :{
-        type:String
+    content :{
+        type:String,
+        required: true
     },
-    Timestamps :{
-        type:String
-    },
-    Category :{
+    updated: {
+        type: Date, default: Date.now },
+
+    category :{
         type:String
     },
 }, {timestamps: true})

@@ -18,30 +18,39 @@ const userSchema= new mongoose.Schema({
     password:{
         type: String,
         required: true
-    }
+    },
+    age:{
+        type: String,
+        
+    },
+    gender:{
+        type: String,
+        
+    },
+
 })
 
-// userSchema.methods.getJWT = async function () {
-//     const user = this;
+userSchema.methods.getJWT = async function () {
+    const user = this;
   
-//     const token = await jwt.sign({ _id: user._id }, "DEV@Tinder$790", {
-//       expiresIn: "7d",
-//     });
+    const token = await jwt.sign({ _id: user._id }, "ram", {
+      expiresIn: "7d",
+    });
   
-//     return token;
-//   };
+    return token;
+  };
   
-//   userSchema.methods.validatePassword = async function (passwordInputByUser) {
-//     const user = this;
-//     const passwordHash = user.password;
+  userSchema.methods.validatePassword = async function (passwordInputByUser) {
+    const user = this;
+    const passwordHash = user.password;
   
-//     const isPasswordValid = await bcrypt.compare(
-//       passwordInputByUser,
-//       passwordHash
-//     );
+    const isPasswordValid = await bcrypt.compare(
+      passwordInputByUser,
+      passwordHash
+    );
   
-//     return isPasswordValid;
-//   };
+    return isPasswordValid;
+  };
 
 module.exports = mongoose.model("User", userSchema);
  

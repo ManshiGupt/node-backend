@@ -5,7 +5,7 @@ const sanitizeHtml = require("sanitize-html");
 const Note = require("../models/note");
 
 // Get all notes
-noteRouter.get("/", async (req, res) => {
+noteRouter.get("/note/view", async (req, res) => {
   try {
     const notes = await Note.find();
     res.status(200).json(notes);
@@ -16,7 +16,7 @@ noteRouter.get("/", async (req, res) => {
 
 // Create a new note
 noteRouter.post(
-  "/",
+  "/note",
   [
     body("title").trim().notEmpty().withMessage("Title is required."),
     body("content").trim().notEmpty().withMessage("Content is required."),
@@ -46,7 +46,7 @@ noteRouter.post(
 
 // Update an existing note
 noteRouter.patch(
-  "/:id",
+  "/note/edit/:id",
   [
     body("title").optional().trim().notEmpty().withMessage("Title cannot be empty."),
     body("content").optional().trim().notEmpty().withMessage("Content cannot be empty."),
@@ -79,7 +79,7 @@ noteRouter.patch(
 );
 
 // Delete a note
-noteRouter.delete("/:id", async (req, res) => {
+noteRouter.delete("/note/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deletedNote = await Note.findByIdAndDelete(id);

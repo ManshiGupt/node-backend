@@ -3,8 +3,10 @@ const app = express();
 const connectDB = require("./config/databse");
 const User = require("./models/user");
 const router = express.Router();
+const cookieParser = require("cookie-parser"); 
 
 app.use(express.json());
+app.use(cookieParser());
 
 const authRouter= require("./routes/auth");
 const profileRouter = require("./routes/profile");

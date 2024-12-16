@@ -4,7 +4,14 @@ const connectDB = require("./config/databse");
 const User = require("./models/user");
 const router = express.Router();
 const cookieParser = require("cookie-parser"); 
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const noteSchema = mongoose.Schema({
     title:{
         type:String,
-        maxLength: 5
+        maxLength: 50
     },
     content :{
         type:String,

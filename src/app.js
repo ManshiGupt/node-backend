@@ -3,7 +3,7 @@ const app = express();
 const connectDB = require("./config/databse");
 const User = require("./models/user");
 const router = express.Router();
-const cookieParser = require("cookie-parser"); 
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 app.use(
@@ -15,7 +15,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-const authRouter= require("./routes/auth");
+const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const noteRouter = require("./routes/note");
 

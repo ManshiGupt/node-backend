@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4",
     "note": "file:",
+    "react-router-dom": "^7.1.0",
     "sanitize-html": "^2.13.1",
     "validator": "^13.12.0"
   }

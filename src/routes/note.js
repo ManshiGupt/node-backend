@@ -20,6 +20,7 @@ noteRouter.post(
   [
     body("title").trim().notEmpty().withMessage("Title is required."),
     body("content").trim().notEmpty().withMessage("Content is required."),
+    body("category").trim().notEmpty().withMessage("category is required."),
   ],
   async (req, res) => {
     try {
@@ -28,13 +29,14 @@ noteRouter.post(
         return res.status(400).json({ errors: errors.array() });
       }
 
-      const { title, content } = req.body;
+      const { title, content ,category} = req.body;
 
       // Sanitize inputs
       const sanitizedTitle = sanitizeHtml(title);
       const sanitizedContent = sanitizeHtml(content);
+      const sanitizedCategory = sanitizeHtml(category);
 
-      const note = new Note({ title: sanitizedTitle, content: sanitizedContent });
+      const note = new Note({ title: sanitizedTitle, content: sanitizedContent , category: sanitizedCategory});
       await note.save();
 
       res.status(201).json(note);
